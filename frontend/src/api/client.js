@@ -1,7 +1,9 @@
 import axios from 'axios'
 
 // Create a central axios instance
-const baseURL = import.meta.env.VITE_API_URL || '/api'
+// In production: uses VITE_API_URL from .env.production
+// In development: uses Vite proxy to forward /api to backend
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
 const client = axios.create({
   baseURL,
