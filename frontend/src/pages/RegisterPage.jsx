@@ -81,11 +81,12 @@ export default function RegisterPage() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Email (any format)"
             name="email"
             autoComplete="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            helperText="Use any email - no verification required"
           />
           <TextField
             margin="normal"
@@ -96,9 +97,10 @@ export default function RegisterPage() {
             type="password"
             id="password"
             autoComplete="new-password"
-            inputProps={{ minLength: 6 }}
+            inputProps={{ minLength: 3 }}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            helperText="Minimum 3 characters"
           />
           <Button
             type="submit"

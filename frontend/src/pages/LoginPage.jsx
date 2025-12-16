@@ -65,12 +65,13 @@ export default function LoginPage() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="Email or Username"
             name="email"
             autoComplete="email"
             autoFocus
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            helperText="Use any email/username - no verification required"
           />
           <TextField
             margin="normal"
