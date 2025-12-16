@@ -50,7 +50,7 @@ export default function ProjectListMini() {
         }
       }
       
-      const { data } = await client.get('/projects')
+      const { data } = await client.get('/api/projects')
       const list = Array.isArray(data) ? data : (data?.projects || [])
       setProjects(list.length > 0 ? list : getSampleProjects())
     } catch (err) {

@@ -43,7 +43,7 @@ export default function TeamCollaboration() {
     setError('')
     try {
       // Strategy: fetch projects, aggregate unique members across them
-      const { data } = await client.get('/projects')
+      const { data } = await client.get('/api/projects')
       const list = Array.isArray(data) ? data : (data?.projects || [])
       setProjects(list)
       if (!selectedProjectId && list.length > 0) {

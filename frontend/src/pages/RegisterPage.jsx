@@ -23,7 +23,7 @@ export default function RegisterPage() {
     setError('')
     setLoading(true)
     try {
-      const { data } = await client.post('/auth/register', {
+      const { data } = await client.post('/api/auth/register', {
         username,
         email,
         password,

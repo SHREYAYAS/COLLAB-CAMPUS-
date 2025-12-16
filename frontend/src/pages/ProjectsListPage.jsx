@@ -51,7 +51,7 @@ export default function ProjectsListPage() {
         }
       }
       
-      const { data } = await client.get('/projects')
+      const { data } = await client.get('/api/projects')
       const list = Array.isArray(data) ? data : (data?.projects || [])
       // If no real projects, use sample data
       if (!list || list.length === 0) {
@@ -236,7 +236,7 @@ export default function ProjectsListPage() {
             setCreating(true)
               const payload = { name: name.trim(), title: name.trim(), description: description.trim() }
             try {
-              const { data } = await client.post('/projects', payload)
+              const { data } = await client.post('/api/projects', payload)
               const created = data?.project || data
               setProjects((prev) => [created, ...prev])
               setName('')

@@ -22,7 +22,7 @@ export default function LoginPage() {
     setError('')
     setLoading(true)
     try {
-      const { data } = await client.post('/auth/login', { email, password })
+      const { data } = await client.post('/api/auth/login', { email, password })
       const token = data?.token || data?.accessToken || data?.jwt || data?.data?.token
       if (!token) throw new Error('No token returned by server')
       setToken(token)

@@ -112,7 +112,7 @@ export default function Layout({ children }) {
         if (import.meta?.env?.DEV) console.debug('Failed to fetch current user', e)
       }
       try {
-        const { data: projectsData } = await client.get('/projects')
+        const { data: projectsData } = await client.get('/api/projects')
         const list = Array.isArray(projectsData) ? projectsData : (projectsData?.projects || [])
         if (mounted) setProjectsCount(list.length)
         // Try to infer tasks from projects if /tasks is not available
@@ -123,7 +123,7 @@ export default function Layout({ children }) {
       }
       try {
         // Prefer a dedicated tasks endpoint if available
-        const { data: tasksData } = await client.get('/tasks')
+        const { data: tasksData } = await client.get('/api/tasks')
         const tasksList = Array.isArray(tasksData) ? tasksData : (tasksData?.tasks || [])
         if (mounted) setTasksCount(tasksList.length)
       } catch (e) {

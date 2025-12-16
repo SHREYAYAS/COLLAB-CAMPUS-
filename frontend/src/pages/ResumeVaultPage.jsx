@@ -46,7 +46,7 @@ export default function ResumeVaultPage() {
         }
       }
       
-      const { data } = await client.get('/resumes')
+      const { data } = await client.get('/api/resumes')
       const list = Array.isArray(data) ? data : (data?.resumes || [])
       // If no real resumes, use sample data
       if (!list || list.length === 0) {
@@ -113,7 +113,7 @@ export default function ResumeVaultPage() {
       if (notes) fd.append('notes', notes.trim())
       fd.append('resume', resumeFile)
       if (cvFile) fd.append('cv', cvFile)
-      const { data } = await client.post('/resumes', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
+      const { data } = await client.post('/api/resumes', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
       const created = data?.resume || data
       setItems((prev) => [created, ...prev])
       setCompany('')
